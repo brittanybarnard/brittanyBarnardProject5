@@ -69,7 +69,7 @@ body {
 
 .movieApp {
   background-image: url(./header-image.jpg);
-  height: 80vh;
+  height: 95vh;
   background-size: cover;
   background-repeat: no-repeat;
   font-size: 6rem;
@@ -108,5 +108,7 @@ button:focus {
 }
 
 .movies {
-  background-color: rgb(4, 66, 32);
+  margin: 0 auto;
+  font-family: 'Lobster', cursive;
+  font-size: 3rem;
 }

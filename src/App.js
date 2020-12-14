@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Movies from './Movies.js';
-import Button from './Button.js';
 import './App.css';
 import axios from 'axios';
 
@@ -8,7 +7,7 @@ class App extends Component {
 
   constructor() {
     super();
-      this.state = {name: '', thumbnail: ''}
+      this.state = {name: '', thumbnail: '', movieInformation: []}
   }
 
   componentDidMount() {
@@ -22,23 +21,30 @@ class App extends Component {
         query: 'christmas',
       },
     }).then((res) => {
-      const { title, poster_path } = res.data.results[0]
-      this.setState({ name: title, thumbnail: poster_path })
+      console.log(res.data);
+      // const movieInformation = res.data.results
+      this.setState({ movieInformation: res.data.results })
+      console.log(this.state.movieInformation);
+      // this.setState({ name: title, thumbnail: poster_path })
     })
   }
 
   handleClick = () => {
-    const { name, thumbnail } = this.state
-    console.log(name, thumbnail);
+    const randomizer = Math.floor(Math.random() * this.state.movieInformation.length); 
+    const movieResult = this.state.movieInformation[randomizer]  
+    this.setState({
+      name: movieResult.title,
+      thumbnail: movieResult.poster_path
+    })
+    console.log(this.state);
   }
 
     render() {
       return (
         <div className='movieApp'>
           <h1>Start Your Holidays!</h1>
+          <button onClick={() => this.handleClick()}>Find me a holiday movie!</button>
           <Movies name={this.state.name} thumbnail={this.state.thumbnail} />
-          <button onClick={() => this.handleClick()}>My Button</button>
-          <Button />
         </div>
       );
     }
