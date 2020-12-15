@@ -1,5 +1,6 @@
-import { Component } from 'react';
+import { Component, createRef } from 'react';
 import Movies from './Movies.js';
+import Footer from './Footer.js';
 import './App.css';
 import axios from 'axios';
 
@@ -7,7 +8,8 @@ class App extends Component {
 
   constructor() {
     super();
-      this.state = {name: '', thumbnail: '', movieInformation: []}
+      this.myRef = createRef();
+      this.state = {name: '', thumbnail: '', movieDescription: '', movieInformation: []}
   }
 
   componentDidMount() {
@@ -24,7 +26,7 @@ class App extends Component {
       console.log(res.data);
       // const movieInformation = res.data.results
       this.setState({ movieInformation: res.data.results })
-      console.log(this.state.movieInformation);
+      // console.log(this.state.movieInformation);
       // this.setState({ name: title, thumbnail: poster_path })
     })
   }
@@ -34,17 +36,27 @@ class App extends Component {
     const movieResult = this.state.movieInformation[randomizer]  
     this.setState({
       name: movieResult.title,
-      thumbnail: movieResult.poster_path
+      thumbnail: movieResult.poster_path,
+      movieDescription: movieResult.overview
+    }, () => {
+      this.executeScroll();
     })
-    console.log(this.state);
+    // console.log(this.state);
   }
+
+  executeScroll = () => this.myRef.current.scrollIntoView()  
 
     render() {
       return (
         <div className='movieApp'>
-          <h1>Start Your Holidays!</h1>
-          <button onClick={() => this.handleClick()}>Find me a holiday movie!</button>
-          <Movies name={this.state.name} thumbnail={this.state.thumbnail} />
+          <header className="landingPage">
+            <h1>Start Your Holidays!</h1>
+            <button onClick={() => this.handleClick()}>Find me a holiday movie!</button>
+          </header>
+          {this.state.name 
+          ? <Movies name={this.state.name} thumbnail={this.state.thumbnail} movieDescription={this.state.movieDescription} myRef={this.myRef} /> 
+          : ''}
+            <Footer />
         </div>
       );
     }
