@@ -4,7 +4,7 @@ class Footer extends Component {
     render() {
         return (
             <footer className="footer">
-                <a href="https://junocollege.com/">Juno College of Technology © 2020</a>
+                <a href="https://junocollege.com/">Juno College of Technology ©2020</a>
             </footer>
         )
     }
