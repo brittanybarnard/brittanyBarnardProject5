@@ -44,9 +44,11 @@ class App extends Component {
     render() {
       return (
         <div className='movieApp'>
-          <header className="landingPage wrapper">
+          <header className="landingPage">
+            <div className="wrapper">
               <h1>Start Your Holidays!</h1>
               <button onClick={() => this.handleClick()}>Find me a holiday movie!</button>
+            </div>
           </header>
           {this.state.name 
           ? <Movies name={this.state.name} thumbnail={this.state.thumbnail} movieDescription={this.state.movieDescription} myRef={this.myRef} /> 

@@ -37,7 +37,6 @@ img {
 
 .movieApp {
   font-size: 6rem;
-  background-image: url(./header-image2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -71,11 +70,17 @@ button:focus {
 }
 
 .landingPage {
-  height: 95vh;
+  background-image: url(./header-image2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.landingPage .wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 95vh;
 }
 
 .movies {
@@ -141,15 +146,9 @@ footer a:focus {
   border-bottom: 1px solid #fff;
 }
 
-@media (max-width:938px) {
+@media (max-width:1016px) {
   h1 {
-    font-size: 7rem;
-  }
-}
-
-@media (max-width:898px) {
-  .movies h2 {
-    margin-bottom: 15px;
+    font-size: 9rem;
   }
   .movieFlexContainer {
     flex-direction: column;
@@ -166,20 +165,35 @@ footer a:focus {
   }
 }
 
-@media (max-width:600px) {
+@media (max-width:898px) {
+  .movies h2 {
+    margin-bottom: 15px;
+  }
+  h1 {
+    font-size: 7rem;
+  }
+}
+
+@media (max-width:614px) {
   h1 {
     font-size: 5rem;
   }
 
 }
 
-@media (max-width:428px) {
+@media (max-width:444px) {
   h1 {
+    font-size: 3rem;
+  }
+  h2 {
     font-size: 3rem;
   }
   button {
     margin-top: 20px;
     padding: 10px;
     font-weight: 400;
+  }
+  .movieFlexContainer img {
+    min-width: 200px;
   }
 }
