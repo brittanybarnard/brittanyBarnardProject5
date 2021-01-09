@@ -23,11 +23,7 @@ class App extends Component {
         query: 'christmas',
       },
     }).then((res) => {
-      console.log(res.data);
-      // const movieInformation = res.data.results
       this.setState({ movieInformation: res.data.results })
-      // console.log(this.state.movieInformation);
-      // this.setState({ name: title, thumbnail: poster_path })
     })
   }
 
@@ -41,7 +37,6 @@ class App extends Component {
     }, () => {
       this.executeScroll();
     })
-    // console.log(this.state);
   }
 
   executeScroll = () => this.myRef.current.scrollIntoView()  

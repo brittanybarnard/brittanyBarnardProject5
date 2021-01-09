@@ -8,10 +8,6 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
-    /* font-family: 'Lobster', cursive;
-
-    font-family: 'Padauk', sans-serif; */
-
 * {
   margin: 0;
   padding: 0;
@@ -44,13 +40,12 @@ img {
   background-image: url(./header-image2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  /* padding: 40px; */
-  /* height: 90vh; */
 }
 
 h1 {
   margin: 0 auto;
   font-family: 'Lobster', cursive;
+  font-size: 11rem;
   text-shadow: 6px 6px rgb(138, 10, 10);
 }
 
@@ -88,11 +83,6 @@ button:focus {
   font-family: 'Lobster', cursive;
   font-size: 3rem;
   background-color: #000;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  /* height: 95vh; */
 }
 
 .movieContainer {
@@ -120,9 +110,12 @@ button:focus {
 
 .movieFlexContainer {
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
-  /* text-align: center; */
+}
+
+.movieFlexContainer img {
+  min-width: 200px;
+  height: auto;
 }
 
 .footer {
@@ -148,3 +141,45 @@ footer a:focus {
   border-bottom: 1px solid #fff;
 }
 
+@media (max-width:938px) {
+  h1 {
+    font-size: 7rem;
+  }
+}
+
+@media (max-width:898px) {
+  .movies h2 {
+    margin-bottom: 15px;
+  }
+  .movieFlexContainer {
+    flex-direction: column;
+  }
+  .movieFlexContainer img {
+    min-width: 300px;
+  }
+  .movieFlexContainer p {
+    margin-left: 0;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 2rem;
+    width: 100%;
+  }
+}
+
+@media (max-width:600px) {
+  h1 {
+    font-size: 5rem;
+  }
+
+}
+
+@media (max-width:428px) {
+  h1 {
+    font-size: 3rem;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: 400;
+  }
+}

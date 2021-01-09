@@ -2,7 +2,6 @@ import { Component } from "react";
 
 class Movies extends Component {
     render() {
-        // console.log(this.props.thumbnail);
         return (
             <div ref={this.props.myRef} className="movies">
                 <div className="movieContainer wrapper">
