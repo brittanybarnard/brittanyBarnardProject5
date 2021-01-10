@@ -183,7 +183,10 @@ footer a:focus {
 
 @media (max-width:444px) {
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
+  }
+  .landingPage {
+    height: 90vh;
   }
   h2 {
     font-size: 3rem;
@@ -195,5 +198,8 @@ footer a:focus {
   }
   .movieFlexContainer img {
     min-width: 200px;
+  }
+  .footer {
+    height: 10vh;
   }
 }
